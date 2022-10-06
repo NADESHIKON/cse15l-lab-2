@@ -20,7 +20,7 @@ class SearchEngineURLHandler implements URLHandler {
             if (query == null) return "Please enter a valid search query!";
 
             String finalQuery = query;
-            return "Result: " + this.content.stream().filter(c -> c.toLowerCase().contains(finalQuery)).collect(Collectors.joining(", "));
+            return "Result: " + this.content.stream().filter(c -> c.toLowerCase().contains(finalQuery.toLowerCase())).collect(Collectors.joining(", "));
         });
         HANDLERS.put("/add", url -> {
             String[] rawQuery = url.getQuery().split("=");
